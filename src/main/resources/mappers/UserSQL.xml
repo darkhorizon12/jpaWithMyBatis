@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.juon.jpademo.mappers.UserMapper">
+
+    <select id="findAll" resultType="org.juon.jpademo.users.User">
+        select
+            user_id as userId,
+            user_nm as userNm
+         from tb_user_m
+    </select>
+
+    <select id="findByUserName" parameterType="string" resultType="org.juon.jpademo.users.User">
+        select
+            user_id as userId,
+            user_nm as userNm
+         from tb_user_m
+         where user_nm = #{userName}
+    </select>
+</mapper>
